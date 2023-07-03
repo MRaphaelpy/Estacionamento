@@ -6,7 +6,11 @@ import java.util.Scanner;
 
 public class AtendenteManager {
     private ArrayList<Atendente> funcionarioList;
-    private Scanner scanner;
+    private Scanner scanner = new Scanner(System.in);
+
+    public AtendenteManager() {
+        funcionarioList = new ArrayList<>();
+    }
 
     public void AtendenteManager() {
         System.out.print("\033[H\033[2J");
@@ -21,7 +25,6 @@ public class AtendenteManager {
         switch (opcao.nextInt()) {
             case 1:
                 addFuncionario();
-                ;
                 AtendenteManager();
                 break;
             case 2:
@@ -55,19 +58,20 @@ public class AtendenteManager {
 
     public void addFuncionario() {
         System.out.println("Digite o usuario do Funcionario: ");
-        var usuario = new Scanner(System.in);
+        var usuario = scanner.nextLine();
         System.out.println("Digite a senha do Funcionario: ");
-        var senha = new Scanner(System.in);
+        var senha = scanner.nextLine();
+        Atendente newFuncionario = new Atendente(usuario, senha);
 
-        Atendente newFuncionario = new Atendente(usuario.nextLine(), senha.nextLine());
 
-        // if (veriffyExistence(funcionarioList, newFuncionario) == false) {
-        // funcionarioList.add(newFuncionario);
-        // System.out.println("Funcionario adicionado com sucesso");
-        // } else {
-        // System.out.println("Funcionario já existe");
-        // }
-        funcionarioList.add(newFuncionario);
+         if (!veriffyExistence(funcionarioList, newFuncionario)) {
+
+         funcionarioList.add(newFuncionario);
+         System.out.println("Funcionario adicionado com sucesso");
+         } else {
+         System.out.println("Funcionario já existe");
+         }
+       // funcionarioList.add(newFuncionario);
     }
 
     public void modifyFuncionario() {
@@ -78,7 +82,7 @@ public class AtendenteManager {
 
         Atendente newFuncionario = new Atendente(usuario.nextLine(), senha.nextLine());
 
-        if (veriffyExistence(funcionarioList, newFuncionario) == true) {
+        if (veriffyExistence(funcionarioList, newFuncionario)) {
             funcionarioList.remove(newFuncionario);
             funcionarioList.add(newFuncionario);
             System.out.println("Funcionario modificado com sucesso");
@@ -95,7 +99,7 @@ public class AtendenteManager {
 
         Atendente newFuncionario = new Atendente(usuario.nextLine(), senha.nextLine());
 
-        if (veriffyExistence(funcionarioList, newFuncionario) == true) {
+        if (veriffyExistence(funcionarioList, newFuncionario)) {
             funcionarioList.remove(newFuncionario);
             System.out.println("Funcionario removido com sucesso");
         } else {

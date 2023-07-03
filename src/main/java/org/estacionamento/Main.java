@@ -10,6 +10,7 @@ class Main {
         System.out.print("\033[H\033[2J");
         animations.carregamento();
         System.out.print("\033[H\033[2J");
+        System.out.print("\033[H\033[2J");
         Estacionamento estacionamento = new Estacionamento("Atores.Estacionamento do Zé",
                 "Rua do Zé");
         estacionamento.mensagemBoasVindas();

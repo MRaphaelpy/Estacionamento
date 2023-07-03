@@ -64,35 +64,35 @@ public class ClientActions {
             System.out.print("\033[H\033[2J");
             System.out.println("\n\nSem Pisos");
 
-        }
-
-        Veiculos veiculo = criarVeiculo();
-
-        if (this.verifyVehicleExists(clientes, veiculo)) {
-            System.out.println("\nVeículo já está estacionado!");
-        }
-
-        System.out.println("\n\nEm qual piso deseja estacionar?");
-
-        for (int i = 0; i < pisos.size(); i++) {
-            System.out.println("Piso " + i);
-        }
-        System.out.print("Digite o número do piso: ");
-        int andar = leitor.nextInt();
-
-        if (andar < 0 || andar >= pisos.size()) {
-            System.out.println("Piso inválido!");
-        }
-
-        IPisos piso = pisos.get(andar);
-        Ticket ticket = obterTicket(veiculo, piso);
-       boolean teste= sistema.adicionarVeiculo(ticket);
-        Cliente cliente = new Cliente(ticket);
-        clientes.add(cliente);
-        if(teste){
-            System.out.println("\n\nVeículo " + cliente.ticket.getVeiculo().getPlaca() + " adicionado à vaga no piso " + andar);
         }else{
-            System.out.println("Veiculo nao Estacionado :(");
+            Veiculos veiculo = criarVeiculo();
+
+            if (this.verifyVehicleExists(clientes, veiculo)) {
+                System.out.println("\nVeículo já está estacionado!");
+            }
+
+            System.out.println("\n\nEm qual piso deseja estacionar?");
+
+            for (int i = 0; i < pisos.size(); i++) {
+                System.out.println("Piso " + i);
+            }
+            System.out.print("Digite o número do piso: ");
+            int andar = leitor.nextInt();
+
+            if (andar < 0 || andar >= pisos.size()) {
+                System.out.println("Piso inválido!");
+            }
+
+            IPisos piso = pisos.get(andar);
+            Ticket ticket = obterTicket(veiculo, piso);
+            boolean teste= sistema.adicionarVeiculo(ticket);
+            Cliente cliente = new Cliente(ticket);
+            clientes.add(cliente);
+            if(teste){
+                System.out.println("\n\nVeículo " + cliente.ticket.getVeiculo().getPlaca() + " adicionado à vaga no piso " + andar);
+            }else{
+                System.out.println("Veiculo nao Estacionado :(");
+            }
         }
     }
 
@@ -134,7 +134,7 @@ public class ClientActions {
     }
 
     private boolean retirarVeiculo() {
-        if (atendentes.isEmpty() == true) {
+        if (atendentes.isEmpty()) {
             System.out.println("\nPelo visto todos os Atendentes estao Ocupados no Momento!");
             return false;
         }
@@ -181,7 +181,6 @@ public class ClientActions {
         if (pisos.isEmpty()) {
             System.out.print("\033[H\033[2J");
             System.out.println("\n\nSem pisos cadastrados!");
-            return;
         }
 
         System.out.println("PISOS");
@@ -195,8 +194,6 @@ public class ClientActions {
             opcao = leitor.nextInt();
             if (opcao >= pisos.size()) {
                 System.out.println("Piso inválido!");
-
-                return;
             }
 
             // Pisos piso = pisos.get(opcao);
