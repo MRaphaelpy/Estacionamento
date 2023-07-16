@@ -1,96 +1,114 @@
 package org.estacionamento.Piso.Vaga;
 
-import org.estacionamento.Interfaces.IVaga;
+import org.estacionamento.Veiculos.*;
 
-public class Vaga implements IVaga {
-    private int pequena;
-    private int grande;
-    private int eletrico;
-    private int moto;
+import java.util.ArrayList;
+import java.util.List;
 
-    public Vaga(int pequena, int grande, int eletrico, int moto) {
-        if (pequena >= 0 && grande >= 0 && eletrico >= 0 && moto >= 0) {
-            if (pequena + grande + moto + eletrico >= 5) {
-                this.pequena = pequena;
-                this.grande = grande;
-                this.eletrico = eletrico;
-                this.moto = moto;
-            } else {
-                System.out.print("\033[H\033[2J");
-                System.out.println("Numero de vagas Inferior a 5 Nao permitido");
-            }
+public class Vaga {
+    private int quantidadeCarros;
+    private int quantidadeMotos;
+    private int quantidadeEletricos;
+    private int quantidadeCaminhoes;
+
+    private List<Carro> carros;
+    private List<Moto> motos;
+    private List<Eletrico> eletricos;
+    private List<Veiculos> caminhoes;
+
+    public Vaga(int quantidadeCarros, int quantidadeMotos, int quantidadeEletricos, int quantidadeCaminhoes) {
+        this.quantidadeCarros = quantidadeCarros;
+        this.quantidadeMotos = quantidadeMotos;
+        this.quantidadeEletricos = quantidadeEletricos;
+        this.quantidadeCaminhoes = quantidadeCaminhoes;
+
+        carros = new ArrayList<>();
+        motos = new ArrayList<>();
+        eletricos = new ArrayList<>();
+        caminhoes = new ArrayList<>();
+    }
+
+    public void adicionarCarro(Carro carro) {
+        if (carros.size() < quantidadeCarros) {
+            carros.add(carro);
+            System.out.println("Carro adicionado à vaga de carros.");
         } else {
-            System.out.println("Erro ao criar vagas");
+            System.out.println("Não há vagas disponíveis para carros.");
         }
     }
 
-    public void setPequena(int pequena) {
-        if (pequena >= 0) {
-            this.pequena = pequena;
+    public void adicionarMoto(Moto moto) {
+        if (motos.size() < quantidadeMotos) {
+            motos.add(moto);
+            System.out.println("Moto adicionada à vaga de motos.");
         } else {
-            System.out.println("Erro ao criar vagas pequenas");
+            System.out.println("Não há vagas disponíveis para motos.");
         }
     }
 
-    public void setGrande(int grande) {
-        if (grande >= 0) {
-            this.grande = grande;
+    public void adicionarEletrico(Eletrico eletrico) {
+        if (eletricos.size() < quantidadeEletricos) {
+            eletricos.add(eletrico);
+            System.out.println("Veículo elétrico adicionado à vaga de veículos elétricos.");
         } else {
-            System.out.println("Erro ao criar vagas grandes");
+            System.out.println("Não há vagas disponíveis para veículos elétricos.");
         }
     }
 
-    public void setEletrico(int eletrico) {
-        if (eletrico >= 0) {
-            this.eletrico = eletrico;
+    public void adicionarCaminhao(Veiculos caminhao) {
+        if (caminhoes.size() < quantidadeCaminhoes) {
+            caminhoes.add(caminhao);
+            System.out.println("Caminhão adicionado à vaga de caminhões.");
         } else {
-            System.out.println("Erro ao criar vagas eletricas");
+            System.out.println("Não há vagas disponíveis para caminhões.");
         }
     }
 
-    public void setMoto(int moto) {
-        if (moto >= 0) {
-            this.moto = moto;
-        } else {
-            System.out.println("Erro ao criar vagas de moto");
-        }
+    public void removerCarro(Carro carro) {
+        carros.remove(carro);
     }
 
-    public int getPequena() {
-        return this.pequena;
+    public void removerMoto(Moto moto) {
+        motos.remove(moto);
     }
 
-    public int getGrande() {
-        return this.grande;
+    public void removerEletrico(Eletrico eletrico) {
+        eletricos.remove(eletrico);
     }
 
-    public int getEletrico() {
-        return this.eletrico;
+    public void removerCaminhao(Caminhao caminhao) {
+        caminhoes.remove(caminhao);
     }
 
-    public int getMoto() {
-        return this.moto;
+    public List<Carro> getCarros() {
+        return carros;
     }
 
-    public void addGrande(int qtd) {
-        qtd += this.grande;
-        this.setGrande(qtd);
+    public List<Moto> getMotos() {
+        return motos;
     }
 
-    public void addEletrico(int qtd) {
-        qtd += this.eletrico;
-        this.setEletrico(qtd);
+    public List<Eletrico> getEletricos() {
+        return eletricos;
     }
 
-    public void addMoto(int qtd) {
-        qtd += this.moto;
-        this.setMoto(qtd);
+    public List<Veiculos> getCaminhoes() {
+        return caminhoes;
     }
 
-    @Override
-    public void addPequena(int qtd) {
-        qtd += this.pequena;
-        this.setPequena(qtd);
+    public int getQuantidadeCarrosDisponiveis() {
+        return quantidadeCarros - carros.size();
     }
 
+    public int getQuantidadeMotosDisponiveis() {
+        return quantidadeMotos - motos.size();
+    }
+
+    public int getQuantidadeEletricosDisponiveis() {
+        return quantidadeEletricos - eletricos.size();
+    }
+
+    public int getQuantidadeCaminhoesDisponiveis() {
+        return quantidadeCaminhoes - caminhoes.size();
+    }
 }

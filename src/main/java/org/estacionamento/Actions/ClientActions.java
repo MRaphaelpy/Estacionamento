@@ -83,7 +83,7 @@ public class ClientActions {
                 System.out.println("Piso inválido!");
             }
 
-            IPisos piso = pisos.get(andar);
+            Pisos piso = pisos.get(andar);
             Ticket ticket = obterTicket(veiculo, piso);
             boolean teste= sistema.adicionarVeiculo(ticket);
             Cliente cliente = new Cliente(ticket);
@@ -173,7 +173,7 @@ public class ClientActions {
         return null;
     }
 
-    private Ticket obterTicket(Veiculos veiculo, IPisos piso) {
+    private Ticket obterTicket(Veiculos veiculo, Pisos piso) {
         return new Ticket(veiculo, piso);
     }
 
