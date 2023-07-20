@@ -20,12 +20,9 @@ public class ControllerInicial {
 
     public ControllerInicial() {
         scanner = new Scanner(System.in);
-
+        clientActions = new ClientActions(this.pisos, this.funcionario, this.clientes);
         Admin adminInicial = new Admin(this.pisos, this.admin, this.funcionario, "admin", "admin");
         admin.add(adminInicial);
-    }
-    public ControllerInicial(ArrayList funcionarios){
-        this.clientActions = new ClientActions(this.pisos,funcionarios, this.clientes);
     }
 
     public void escolhasIniciais() {
@@ -37,7 +34,7 @@ public class ControllerInicial {
                 System.out.println("1 - Cliente");
                 System.out.println("2 - Admnistrador");
                 System.out.println("4 - Encerrar Programa");
-                System.out.println("Escolha uma opção: ");
+                System.out.print("Escolha uma opção: ");
                 var opcao = new Scanner(System.in);
 
                 switch (opcao.nextInt()) {
@@ -59,7 +56,7 @@ public class ControllerInicial {
                     case 4:
                         System.out.print("\033[H\033[2J");
                         // animationFinal();
-                        Animations.TerminalAnimation.encerramento();
+                        //Animations.TerminalAnimation.encerramento();
                         System.out.println("See you :)");
                         condicao = false;
 
@@ -79,12 +76,9 @@ public class ControllerInicial {
         System.out.println("Digite a senha: ");
         var senha = scanner.nextLine();
         Admin adminInit = new Admin(this.pisos, this.admin, this.funcionario, usuario, senha);
-        Admin teste;
         for (int i = 0; i < admin.size(); i++) {
             if (this.admin.get(i).getUser().equals(usuario)) {
                 System.out.println("Bem vindo " + this.admin.get(i).getUser());
-                teste = admin.get(i);
-
                 admin.get(i).adminFunc();
 
             } else {

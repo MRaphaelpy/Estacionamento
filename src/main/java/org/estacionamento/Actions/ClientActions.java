@@ -134,6 +134,7 @@ public class ClientActions {
     }
 
     private boolean retirarVeiculo() {
+        System.out.println("Quantidade de Atendente: "+atendentesList.size());
         if (atendentesList.isEmpty()) {
             System.out.println("\nPelo visto todos os Atendentes estao Ocupados no Momento!");
             return false;

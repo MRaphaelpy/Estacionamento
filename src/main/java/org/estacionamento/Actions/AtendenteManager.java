@@ -8,10 +8,10 @@ import java.util.Scanner;
 public class AtendenteManager {
     private ArrayList<Atendente> funcionarioList;
     private Scanner scanner = new Scanner(System.in);
-    private ControllerInicial controllerInicial = new ControllerInicial();
+   // private ControllerInicial controllerInicial = new ControllerInicial();
 
-    public AtendenteManager() {
-        funcionarioList = new ArrayList<>();
+    public AtendenteManager(ArrayList<Atendente> funcionarioList) {
+        this.funcionarioList = funcionarioList;
 
     }
 
@@ -71,7 +71,7 @@ public class AtendenteManager {
 
          funcionarioList.add(newFuncionario);
          System.out.println("Funcionario adicionado com sucesso");
-         controllerInicial = new ControllerInicial(funcionarioList);
+        // controllerInicial = new ControllerInicial(funcionarioList);
          } else {
          System.out.println("Funcionario já existe");
          }

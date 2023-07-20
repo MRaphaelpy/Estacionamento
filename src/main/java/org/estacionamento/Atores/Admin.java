@@ -31,7 +31,7 @@ public class Admin extends AccountImplementation {
 
         this.gerenciarPisos = new PisosOptions(this.pisosList);
         this.gerenciarAdmins = new AdminManager(admins, funcionarios, pisos);
-        this.gerenciarFuncionario = new AtendenteManager();
+        this.gerenciarFuncionario = new AtendenteManager(this.funcionariosList);
 
         this.username = usuario;
         this.password = senha;
