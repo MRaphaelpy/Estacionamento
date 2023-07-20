@@ -1,5 +1,6 @@
 package org.estacionamento.Actions;
 import org.estacionamento.Atores.Atendente;
+import org.estacionamento.ControllerInicial;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,9 +8,11 @@ import java.util.Scanner;
 public class AtendenteManager {
     private ArrayList<Atendente> funcionarioList;
     private Scanner scanner = new Scanner(System.in);
+    private ControllerInicial controllerInicial = new ControllerInicial();
 
     public AtendenteManager() {
         funcionarioList = new ArrayList<>();
+
     }
 
     public void AtendenteManager() {
@@ -68,6 +71,7 @@ public class AtendenteManager {
 
          funcionarioList.add(newFuncionario);
          System.out.println("Funcionario adicionado com sucesso");
+         controllerInicial = new ControllerInicial(funcionarioList);
          } else {
          System.out.println("Funcionario já existe");
          }

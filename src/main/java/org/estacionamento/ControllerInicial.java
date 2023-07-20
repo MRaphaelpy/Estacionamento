@@ -20,9 +20,12 @@ public class ControllerInicial {
 
     public ControllerInicial() {
         scanner = new Scanner(System.in);
-        this.clientActions = new ClientActions(this.pisos, this.funcionario, this.clientes);
+
         Admin adminInicial = new Admin(this.pisos, this.admin, this.funcionario, "admin", "admin");
         admin.add(adminInicial);
+    }
+    public ControllerInicial(ArrayList funcionarios){
+        this.clientActions = new ClientActions(this.pisos,funcionarios, this.clientes);
     }
 
     public void escolhasIniciais() {

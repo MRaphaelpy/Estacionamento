@@ -22,14 +22,15 @@ public class Vaga {
         this.quantidadeEletricos = quantidadeEletricos;
         this.quantidadeCaminhoes = quantidadeCaminhoes;
 
-        carros = new ArrayList<>();
-        motos = new ArrayList<>();
-        eletricos = new ArrayList<>();
-        caminhoes = new ArrayList<>();
+        carros = new ArrayList<Carro>();
+        motos = new ArrayList<Moto>();
+        eletricos = new ArrayList<Eletrico>();
+        caminhoes = new ArrayList<Veiculos>();
     }
 
     public void adicionarCarro(Carro carro) {
-        if (carros.size() < quantidadeCarros) {
+        if (carros.size() > quantidadeCarros) {
+
             carros.add(carro);
             System.out.println("Carro adicionado à vaga de carros.");
         } else {
@@ -60,7 +61,7 @@ public class Vaga {
             caminhoes.add(caminhao);
             System.out.println("Caminhão adicionado à vaga de caminhões.");
         } else {
-            System.out.println("Não há vagas disponíveis para caminhões.");
+            System.out.println("Não há vagas disponíveis para Caminhões ou Vans");
         }
     }
 
@@ -76,7 +77,7 @@ public class Vaga {
         eletricos.remove(eletrico);
     }
 
-    public void removerCaminhao(Caminhao caminhao) {
+    public void removerCaminhao(Veiculos caminhao) {
         caminhoes.remove(caminhao);
     }
 

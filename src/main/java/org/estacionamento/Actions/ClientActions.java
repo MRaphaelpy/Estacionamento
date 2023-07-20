@@ -16,14 +16,14 @@ import java.util.Scanner;
 public class ClientActions {
     private ArrayList<Pisos> pisos;
     private ArrayList<Cliente> clientes;
-    private ArrayList<Atendente> atendentes;
+    private ArrayList<Atendente> atendentesList;
     private final Sistema sistema;
     private final Scanner leitor = new Scanner(System.in);
 
-    public ClientActions(ArrayList<Pisos> pisos, ArrayList<Atendente> atendentes, ArrayList<Cliente> clientes) {
+    public ClientActions(ArrayList<Pisos> pisos, ArrayList<Atendente> atendentesList, ArrayList<Cliente> clientes) {
         this.pisos = pisos;
         this.clientes = clientes;
-        this.atendentes = atendentes;
+        this.atendentesList = atendentesList;
         this.sistema = new Sistema();
     }
 
@@ -85,14 +85,14 @@ public class ClientActions {
 
             Pisos piso = pisos.get(andar);
             Ticket ticket = obterTicket(veiculo, piso);
-            boolean teste= sistema.adicionarVeiculo(ticket);
+            sistema.adicionarVeiculo(ticket);
             Cliente cliente = new Cliente(ticket);
             clientes.add(cliente);
-            if(teste){
-                System.out.println("\n\nVeículo " + cliente.ticket.getVeiculo().getPlaca() + " adicionado à vaga no piso " + andar);
-            }else{
-                System.out.println("Veiculo nao Estacionado :(");
-            }
+//            if(teste){
+//                System.out.println("\n\nVeículo " + cliente.ticket.getVeiculo().getPlaca() + " adicionado à vaga no piso " + andar);
+//            }else{
+//                System.out.println("Veiculo nao Estacionado :(");
+//            }
         }
     }
 
@@ -134,7 +134,7 @@ public class ClientActions {
     }
 
     private boolean retirarVeiculo() {
-        if (atendentes.isEmpty()) {
+        if (atendentesList.isEmpty()) {
             System.out.println("\nPelo visto todos os Atendentes estao Ocupados no Momento!");
             return false;
         }
@@ -152,7 +152,7 @@ public class ClientActions {
 
         if (opcao == 1) {
             Random gerador = new Random();
-            Atendente atendente = atendentes.get(gerador.nextInt(atendentes.size()));
+            Atendente atendente = atendentesList.get(gerador.nextInt(atendentesList.size()));
             boolean condition = atendente.receberPagamento(cliente);
             if (condition == true) {
                 sistema.removerVeiculo(cliente.ticket);

@@ -6,7 +6,7 @@ import org.estacionamento.Veiculos.*;
 
 import java.util.Scanner;
 
-public class Pisos{
+public class Pisos implements IPisos{
     private Scanner numVagasAdd = new Scanner(System.in);
     private int andar;
     private Portal portal;
@@ -61,31 +61,31 @@ public class Pisos{
     }
 
 
-    public boolean estacionarVeiculo(Veiculos veiculo) {
+    public void estacionarVeiculo(Veiculos veiculo) {
 
         if(veiculo instanceof Carro){
             vagas.adicionarCarro((Carro) veiculo);
-            return  true;
+
         }
         else if(veiculo instanceof Moto){
             vagas.adicionarMoto((Moto) veiculo);
-            return  true;
+
         }
         else if(veiculo instanceof Eletrico){
             vagas.adicionarEletrico((Eletrico) veiculo);
-            return  true;
+
         }
         else if(veiculo instanceof Van){
             vagas.adicionarCaminhao(veiculo);
-            return  true;
+
         }
         else if(veiculo instanceof Caminhao){
             vagas.adicionarCaminhao((Caminhao) veiculo);
-            return  true;
+
         }
         else{
             System.out.println("Veiculo não identificado");
-            return false;
+
         }
 
     }
@@ -103,7 +103,7 @@ public class Pisos{
             vagas.removerEletrico((Eletrico) veiculo);
         }
         else if(veiculo instanceof Van){
-          //  vagas.removerCaminhao((Van) veiculo);
+            vagas.removerCaminhao((Van) veiculo);
         }
         else if(veiculo instanceof Caminhao){
             vagas.removerCaminhao((Caminhao) veiculo);
@@ -111,16 +111,6 @@ public class Pisos{
         else{
             System.out.println("Veiculo não identificado");
         }
-
-        // else if (veiculo.getTipo(veiculo).equals("Eletrico")) {
-
-        // if (vagas.getEletrico() < 0) {
-        // vagas.setEletrico(vagas.getEletrico() + 1);
-        // System.out.println("Carro eletrico saiu");
-        // } else {
-        // System.out.println("Sem vagas");
-        // }
-
 
     }
 
