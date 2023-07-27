@@ -19,4 +19,6 @@ public class Ticket {
     public Pisos getPiso() {
         return this.piso;
     }
+
+
 }

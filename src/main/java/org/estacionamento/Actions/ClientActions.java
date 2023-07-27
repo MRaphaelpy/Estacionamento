@@ -82,23 +82,20 @@ public class ClientActions {
             if (andar < 0 || andar >= pisos.size()) {
                 System.out.println("Piso inválido!");
             }
+                Ticket ticket = new Ticket(veiculo, pisos.get(andar));
+                Cliente cliente = new Cliente(ticket);
+                clientes.add(cliente);
+                sistema.adicionarVeiculo(ticket);
 
-            Pisos piso = pisos.get(andar);
-            Ticket ticket = obterTicket(veiculo, piso);
-            sistema.adicionarVeiculo(ticket);
-            Cliente cliente = new Cliente(ticket);
-            clientes.add(cliente);
-//            if(teste){
-//                System.out.println("\n\nVeículo " + cliente.ticket.getVeiculo().getPlaca() + " adicionado à vaga no piso " + andar);
-//            }else{
-//                System.out.println("Veiculo nao Estacionado :(");
-//            }
         }
     }
 
     private boolean verifyVehicleExists(ArrayList<Cliente> clientes, Veiculos novoVeiculo) {
         for (Cliente cliente : clientes) {
             if (cliente.ticket.getVeiculo().equals(novoVeiculo)) {
+
+
+
                 return true;
             }
         }
@@ -139,39 +136,44 @@ public class ClientActions {
             System.out.println("\nPelo visto todos os Atendentes estao Ocupados no Momento!");
             return false;
         }
+        else{
+            Cliente cliente = procurarCliente();
 
-        Cliente cliente = procurarCliente();
+          if(cliente != null){
+              System.out.print("Deseja fazer o pagamento agora? 1 Sim 2 Nao: ");
+              int opcao = leitor.nextInt();
+              if (opcao == 1) {
+                  Random gerador = new Random();
+                  Atendente atendente = atendentesList.get(gerador.nextInt(atendentesList.size()));
+                  boolean condition = atendente.receberPagamento(cliente);
+                  if (condition) {
+                      sistema.removerVeiculo(cliente.ticket);
+                  }
 
-        if (cliente == null) {
-            System.out.println("Cliente não encontrado");
-        }
 
-        Pagamento pag = new Pagamento();
-
-        System.out.print("Deseja fazer o pagamento agora? 1 Sim 2 Nao: ");
-        int opcao = leitor.nextInt();
-
-        if (opcao == 1) {
-            Random gerador = new Random();
-            Atendente atendente = atendentesList.get(gerador.nextInt(atendentesList.size()));
-            boolean condition = atendente.receberPagamento(cliente);
-            if (condition == true) {
-                sistema.removerVeiculo(cliente.ticket);
-            }
+              } else {
+                  System.out.println("Pagamento não realizado!");
+              }
+          }
+          else{
+              System.out.printf("Clinetes vazios????");
+              return false;
+          }
         }
         return true;
     }
 
     private Cliente procurarCliente() {
-        System.out.print("Digite a placa do veículo: ");
-        String placa = leitor.next();
-        Veiculos obj = new Veiculos(placa);
-        for (Cliente cliente : clientes) {
-            if (cliente.ticket.getVeiculo().equals(obj)) {
-                return cliente;
+    System.out.print("\n\nInforme a placa do seu Veículo: ");
+            String placa = leitor.next();
+
+            for (Cliente cliente : clientes) {
+                if (cliente.ticket.getVeiculo().getPlaca().equals(placa)) {
+                    return cliente;
+                }
             }
-        }
-        return null;
+            System.out.println("Veículo não encontrado!");
+            return null;
     }
 
     private Ticket obterTicket(Veiculos veiculo, Pisos piso) {
