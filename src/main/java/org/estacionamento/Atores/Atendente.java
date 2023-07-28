@@ -1,27 +1,25 @@
 package org.estacionamento.Atores;
-import org.estacionamento.Actions.AccountImplementation;
-import org.estacionamento.Pagamento.Pagamento;
 
-import java.util.ArrayList;
+import org.estacionamento.AbstractClass.Account;
+
+import org.estacionamento.Pagamento.Pagamento;
+import org.estacionamento.Pagamento.PagamentoCartao;
+import org.estacionamento.Pagamento.PagamentoDinheiro;
+
 import java.util.Scanner;
 
-public class Atendente extends AccountImplementation {
-    public Object getUser;
+public class Atendente extends Account {
     private final Pagamento pagamentos;
-    Scanner leitor = new Scanner(System.in);
+    private Scanner leitor = new Scanner(System.in);
+    private PagamentoDinheiro pagamentoDinheiro = new PagamentoDinheiro();
+    private PagamentoCartao pagamentoCartao = new PagamentoCartao();
 
     public Atendente(String usuario, String senha) {
-        this.username = usuario;
-        this.password = senha;
+        super(usuario, senha);
         this.pagamentos = new Pagamento();
+
     }
 
-
-    public String getUser() {
-        return this.username;
-    }
-
-    //
     public boolean receberPagamento(Cliente cliente) {
         double valorTotal = pagamentos.precoTicket(cliente);
 
@@ -30,20 +28,20 @@ public class Atendente extends AccountImplementation {
         System.out.println("2 - Cartão");
         System.out.println("3 - Voltar");
         System.out.print("Digite sua opção: ");
+
         String opcao = leitor.next();
 
         switch (opcao) {
             case "1":
-                System.out.println("Pagamento em dinheiro");
-                System.out.println("Pagamento recebido com sucesso!");
-                return true;
+                if (pagamentoDinheiro.realizarPagamentoDinheiro(valorTotal)) {
+                    return true;
+                } else {
+                    System.out.println("Pagamento não realizado totalmente.");
+                    return false;
+                }
+
             case "2":
-                System.out.println("Pagamento em cartão");
-                System.out.println("Digite o numero do cartão: ");
-                String numeroCartao = leitor.next();
-                System.out.println("Digite o nome do titular do cartão: ");
-                String nomeTitular = leitor.next();
-                System.out.println("Pagamento recebido com sucesso!");
+                pagamentoCartao.realizarPagamentoCartao(valorTotal);
                 return true;
             case "3":
                 System.out.println("Voltando...");
@@ -53,4 +51,33 @@ public class Atendente extends AccountImplementation {
                 return false;
         }
     }
+
+//    public void atendenteFunc(ArrayList<Cliente> cliente, Portal portal) {
+//        boolean continuar = true;
+//        while (continuar) {
+//            System.out.println("Escolha uma opção:");
+//            System.out.println("1 - Ver vagas livres");
+//            System.out.println("2 - Sair");
+//            System.out.print("Digite sua opção: ");
+//            String opcao = leitor.next();
+//
+//            switch (opcao) {
+//                case "1":
+//                    mostrarPisos();
+//                    break;
+//                case "2":
+//                    System.out.println("Voltando...");
+//                    continuar = false;
+//                    break;
+//                default:
+//                    System.out.println("Opção escolhida não é válida");
+//                    break;
+//
+//            }
+//
+//
+//
+//}
+//    }
+
 }

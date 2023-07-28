@@ -11,8 +11,7 @@ public class PisosOptions {
         this.pisosList = pisos;
     }
 
-    public void Piso() {
-
+    public void piso() {
         System.out.println("Escolha uma opção:");
         System.out.println("1-Adicionar Piso");
         System.out.println("2-Modificar Piso");
@@ -25,83 +24,91 @@ public class PisosOptions {
         switch (opcao.nextInt()) {
             case 1:
                 addPiso();
-                Piso();
+                piso();
                 break;
             case 2:
                 modifyPiso();
-                Piso();
+                piso();
                 break;
             case 3:
                 removePiso();
-                Piso();
+                piso();
                 break;
             case 4:
                 quantidadePisos();
-                Piso();
+                piso();
                 break;
             case 5:
                 System.out.println("See you :)");
                 break;
             default:
                 System.out.println("Opção inválida");
-
         }
-
     }
-
     public void addPiso() {
         System.out.println("Digite a quantidade de Entradas: ");
         int quantidadeEntradas = new Scanner(System.in).nextInt();
         System.out.println("Digite a quantidade de Saidas: ");
         int quantidadeSaidas = new Scanner(System.in).nextInt();
         Pisos newPiso = new Pisos();
-        newPiso.Pisos(Pisos.totalPisos, quantidadeEntradas, quantidadeSaidas);
+        newPiso.setEntradas(quantidadeEntradas);
+        newPiso.setSaidas(quantidadeSaidas);
+        newPiso.setAndar(Pisos.totalPisos);
         this.pisosList.add(newPiso);
+        newPiso.adicionarNumeroDeVagas();
         quantidadePisos();
     }
 
-    public void modifyPiso() {
+    private void modifyPiso() {
         if (this.pisosList.isEmpty()) {
             System.out.println("Não há pisos cadastrados");
             return;
         } else {
             try {
-                System.out.println("Digite o numero do Piso que deseja modificar: ");
+                System.out.println("Digite o número do Piso que deseja modificar: ");
                 int numeroPiso = new Scanner(System.in).nextInt();
-                System.out.println("Digite a quantidade de Entradas: ");
-                int quantidadeEntradas = new Scanner(System.in).nextInt();
-                System.out.println("Digite a quantidade de Saidas: ");
-                int quantidadeSaidas = new Scanner(System.in).nextInt();
-                Pisos newPiso = new Pisos();
-                newPiso.Pisos(numeroPiso, quantidadeEntradas, quantidadeSaidas);
-                this.pisosList.set(numeroPiso, newPiso);
-                quantidadePisos();
+                if (numeroPiso >= 0 && numeroPiso < this.pisosList.size()) {
+                    System.out.println("Digite a quantidade de Entradas: ");
+                    int quantidadeEntradas = new Scanner(System.in).nextInt();
+                    System.out.println("Digite a quantidade de Saidas: ");
+                    int quantidadeSaidas = new Scanner(System.in).nextInt();
+                    Pisos piso = this.pisosList.get(numeroPiso);
+                    piso.setAndar(numeroPiso);
+                    piso.setEntradas(quantidadeEntradas);
+                    piso.setSaidas(quantidadeSaidas);
+                    piso.adicionarNumeroDeVagas();
+                    quantidadePisos();
+                } else {
+                    System.out.println("Piso não encontrado ou não existe");
+                }
             } catch (Exception e) {
-                System.out.println("Piso não encontrado ou não existe");
+                System.out.println("Valor inválido");
             }
         }
     }
 
-    public void removePiso() {
+    private void removePiso() {
         if (this.pisosList.isEmpty()) {
             System.out.println("Não há pisos cadastrados");
-            return;
         } else {
             try {
-                System.out.println("Digite o numero do Piso que deseja remover: ");
+                System.out.println("Digite o número do Piso que deseja remover: ");
                 int numeroPiso = new Scanner(System.in).nextInt();
-                this.pisosList.remove(numeroPiso);
-                quantidadePisos();
+                if (numeroPiso >= 0 && numeroPiso < this.pisosList.size()) {
+                    this.pisosList.remove(numeroPiso);
+                    quantidadePisos();
+                } else {
+                    System.out.println("Piso não encontrado ou não existe");
+                }
             } catch (Exception e) {
-                System.out.println("Piso não encontrado ou não existe");
+                System.out.println("Valor inválido");
             }
         }
     }
 
-    public void quantidadePisos() {
+    private void quantidadePisos() {
         if (this.pisosList.isEmpty()) {
             System.out.println("Não há pisos cadastrados");
-            return;
         } else {
             System.out.println("Quantidade de pisos: " + this.pisosList.size());
         }

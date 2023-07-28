@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3971e87b-858e-48ee-8715-786a9d033344" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/AbstractClass/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/AbstractClass/PagamentoAbstract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Pagamento/PagamentoCartao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Pagamento/PagamentoDinheiro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/AccountImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/AccountImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/AdminManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/AdminManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/AtendenteManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/AtendenteManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/ClientActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Actions/ClientActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Atendente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Atendente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Portal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Portal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Atores/Sistema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/ControllerInicial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/ControllerInicial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Estacionamento/Estacionamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Estacionamento/Estacionamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Estacionamento/TaxasEstacionamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Estacionamento/TaxasEstacionamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Estacionamento/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Estacionamento/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Interfaces/IPisos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Interfaces/IPisos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Interfaces/IVaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Interfaces/IVaga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Pagamento/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Pagamento/Pagamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Pisos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Pisos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/PisosOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/PisosOptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/VEletrico.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/VGrande.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/VMoto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/VPequena.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/Vaga.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/Vaga.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/estacionamento/Piso/Vaga/VagaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/AccountImplementation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/AdminManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/AdminManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/AtendenteManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/AtendenteManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/ClientActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Actions/ClientActions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Atendente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Atendente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Cliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Cliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Portal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Portal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Sistema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Atores/Sistema.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/ControllerInicial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/ControllerInicial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Estacionamento/Estacionamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Estacionamento/Estacionamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Estacionamento/TaxasEstacionamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Estacionamento/TaxasEstacionamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Estacionamento/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Estacionamento/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Interfaces/IPisos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Interfaces/IPisos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Interfaces/IVaga.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Interfaces/IVaga.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Pagamento/Pagamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Pagamento/Pagamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Pisos.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Pisos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/PisosOptions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/PisosOptions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/VEletrico.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/VGrande.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/VMoto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/VPequena.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/Vaga.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/Vaga.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/estacionamento/Piso/Vaga/VagaController.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2TAhZXfH396hNLTINvWnwFDUFVK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/M.Raphael/Documents/GitHub/Estacionamento",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Estacionamento" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Estacionamento" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3971e87b-858e-48ee-8715-786a9d033344" name="Changes" comment="" />
+      <created>1690491851321</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690491851321</updated>
+    </task>
+    <servers />
+  </component>
+</project>

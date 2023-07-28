@@ -4,7 +4,6 @@ import org.estacionamento.Animations.Animations;
 import org.estacionamento.Estacionamento.Estacionamento;
 
 class Main {
-    
     public static void main(String[] args) {
         Animations animations = new Animations();
         System.out.print("\033[H\033[2J");

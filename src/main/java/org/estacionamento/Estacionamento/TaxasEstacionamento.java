@@ -8,17 +8,23 @@ public class TaxasEstacionamento {
     public TaxasEstacionamento() {
     }
 
-    public static double calcularValorEstacionamento(int horasEstacionado) {
+    public static double calcularValorEstacionamento(int horasEstacionado) throws IllegalArgumentException {
+        if (horasEstacionado < 0) {
+            System.out.println("Kekw\n");
+            throw new IllegalArgumentException("O número de horas estacionado não pode ser negativo.");
+
+        }
+
         double valorTotal = 0.0;
 
         if (horasEstacionado <= 0) {
             return valorTotal;
         }
 
-        valorTotal += PRIMEIRA_HORA; 
+        valorTotal += PRIMEIRA_HORA;
 
         if (horasEstacionado > 1) {
-            valorTotal += SEGUNDA_TERCEIRA_HORA * 2; 
+            valorTotal += SEGUNDA_TERCEIRA_HORA * 2;
 
             if (horasEstacionado > 3) {
                 int horasAdicionais = horasEstacionado - 3;
@@ -28,5 +34,4 @@ public class TaxasEstacionamento {
 
         return valorTotal;
     }
-
 }

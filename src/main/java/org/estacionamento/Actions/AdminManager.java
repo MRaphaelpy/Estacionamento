@@ -1,4 +1,5 @@
 package org.estacionamento.Actions;
+
 import org.estacionamento.Atores.Admin;
 import org.estacionamento.Atores.Atendente;
 import org.estacionamento.Piso.Pisos;
@@ -10,23 +11,26 @@ public class AdminManager {
     private ArrayList<Admin> adminsList;
     private ArrayList<Atendente> funcionariosList;
     private ArrayList<Pisos> pisosList;
+    private Scanner scanner;
 
     public AdminManager(ArrayList<Admin> admins, ArrayList<Atendente> funcionarios, ArrayList<Pisos> pisos) {
         this.adminsList = admins;
         this.funcionariosList = funcionarios;
         this.pisosList = pisos;
+        this.scanner = new Scanner(System.in);
     }
 
     public void adminOptions() {
-        System.out.println("Escollha uma opção:");
-        System.out.println("1-Adicionar Admin");
-        System.out.println("2-Modificar Admin");
-        System.out.println("3-Remover Admin");
-        System.out.println("4-Sair");
+        clearConsole();
+        System.out.println("Escolha uma opção:");
+        System.out.println("1 - Adicionar Admin");
+        System.out.println("2 - Modificar Admin");
+        System.out.println("3 - Remover Admin");
+        System.out.println("4 - Sair");
 
-        var opcao = new Scanner(System.in);
+        int opcao = getInputAsInteger();
 
-        switch (opcao.nextInt()) {
+        switch (opcao) {
             case 1:
                 addAdmin();
                 adminOptions();
@@ -41,42 +45,53 @@ public class AdminManager {
                 break;
             case 4:
                 System.out.println("See you :)");
-                // opcao.close();
                 break;
             default:
                 System.out.println("Opção inválida");
                 adminOptions();
+        }
+    }
 
+    private void clearConsole() {
+        System.out.print("\033[H\033[2J");
+    }
+
+    private int getInputAsInteger() {
+        while (true) {
+            try {
+                return Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Opção inválida. Digite um número válido.");
+            }
         }
     }
 
     public void addAdmin() {
         System.out.println("Digite o usuario do Admin: ");
-        var usuario = new Scanner(System.in);
+        String usuario = scanner.nextLine();
         System.out.println("Digite a senha do Admin: ");
-        var senha = new Scanner(System.in);
+        String senha = scanner.nextLine();
 
-        Admin newAdmin = new Admin(pisosList, adminsList, funcionariosList, usuario.nextLine(), senha.nextLine());
+        Admin newAdmin = new Admin(pisosList, adminsList, funcionariosList, usuario, senha);
 
-        if (veriffyExistence(adminsList, newAdmin) == false) {
+        if (!verifyExistence(adminsList, newAdmin)) {
             adminsList.add(newAdmin);
             System.out.println("Admin adicionado com sucesso");
         } else {
             System.out.println("Admin já existe");
         }
-
     }
 
     public void modifyAdmin() {
         System.out.println("Digite o usuario do Admin: ");
-        var usuario = new Scanner(System.in);
+        String usuario = scanner.nextLine();
         System.out.println("Digite a senha do Admin: ");
-        var senha = new Scanner(System.in);
+        String senha = scanner.nextLine();
 
-        Admin newAdmin = new Admin(pisosList, adminsList, funcionariosList, usuario.nextLine(), senha.nextLine());
+        Admin newAdmin = new Admin(pisosList, adminsList, funcionariosList, usuario, senha);
 
-        if (veriffyExistence(adminsList, newAdmin) == true) {
-            adminsList.remove(newAdmin);
+        if (verifyExistence(adminsList, newAdmin)) {
+            adminsList.removeIf(admin -> admin.getUser().equals(newAdmin.getUser()));
             adminsList.add(newAdmin);
             System.out.println("Admin modificado com sucesso");
         } else {
@@ -86,25 +101,23 @@ public class AdminManager {
 
     public void removeAdmin() {
         System.out.println("Digite o usuario do Admin: ");
-        var usuario = new Scanner(System.in);
+        String usuario = scanner.nextLine();
         System.out.println("Digite a senha do Admin: ");
-        var senha = new Scanner(System.in);
+        String senha = scanner.nextLine();
 
-        Admin newAdmin = new Admin(pisosList, adminsList, funcionariosList, usuario.nextLine(), senha.nextLine());
+        Admin newAdmin = new Admin(pisosList, adminsList, funcionariosList, usuario, senha);
 
-        if (veriffyExistence(adminsList, newAdmin) == true) {
-            adminsList.remove(newAdmin);
+        if (verifyExistence(adminsList, newAdmin)) {
+            adminsList.removeIf(admin -> admin.getUser().equals(newAdmin.getUser()));
             System.out.println("Admin removido com sucesso");
         } else {
             System.out.println("Admin não existe");
         }
     }
 
-    public boolean veriffyExistence(ArrayList<Admin> adminsList, AccountImplementation admin) {
-        for (int i = 0; i < adminsList.size(); i++) {
-            if (adminsList.get(i).equals(admin)) {
-                System.out.println("Admin já existe");
-
+    public boolean verifyExistence(ArrayList<Admin> adminsList, Admin newAdmin) {
+        for (Admin admin : adminsList) {
+            if (admin.getUser().equals(newAdmin.getUser())) {
                 return true;
             }
         }

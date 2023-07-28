@@ -1,32 +1,42 @@
 package org.estacionamento.Actions;
 
+import java.util.Objects;
+
 public class AccountImplementation {
-    public String username;
-    public String password;
+    private String username;
+    private String password;
 
-    public String getUser() {
-        return this.username;
-    }
-
-    public String getPass() {
-        return this.password;
-    }
-
-    public void setUser(String username) {
+    public AccountImplementation(String username, String password) {
         this.username = username;
-    }
-
-    public void setPass(String password) {
         this.password = password;
     }
 
-    public boolean equals(AccountImplementation account) {
-        if (this.username.equals(account.getUser()) && this.password.equals(account.getPass())) {
-            return true;
-        } else {
-            return false;
-        }
+    public String getUsername() {
+        return username;
     }
 
-    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountImplementation account = (AccountImplementation) o;
+        return Objects.equals(username, account.username) && Objects.equals(password, account.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password);
+    }
 }
